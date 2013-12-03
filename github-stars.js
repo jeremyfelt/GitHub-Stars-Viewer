@@ -8,17 +8,18 @@ function pageRequest( url ) {
 		dataType: 'jsonp',
 		async: false,
 		jsonp: false
-		//jsonpCallback: processData
 	});
 }
 
 var processData = function( response ) {
-	console.log( response );
+	var repo_date;
 	$.each( response.data, function processItem( key, val ) {
 		if ( 'WatchEvent' === val.type ) {
-			$('#stars-list').append( '<li>' + val.actor.login + ' <a href="' + val.repo.url + '">' + val.repo.name + '</a></li>' );
+			repo_date = new Date( val.created_at );
+			$('#stars-list').append( '<li>' + repo_date + ' ' + val.actor.login + ' <a href="' + val.repo.url + '">' + val.repo.name + '</a></li>' );
 		}
 	} );
+
 	if ( 'next' === response.meta.Link[0][1].rel ) {
 		pageRequest( response.meta.Link[0][0] );
 	}
