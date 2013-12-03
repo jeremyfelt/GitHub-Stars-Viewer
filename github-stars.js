@@ -15,11 +15,13 @@ var access_token = '',
 	}
 
 	function processData( response ) {
-		var repo_date;
+		var repo_date,
+			$stars_list = $( '#stars-list' );
+
 		$.each( response.data, function processItem( key, val ) {
 			if ( 'WatchEvent' === val.type ) {
 				repo_date = new Date( val.created_at );
-				$('#stars-list').append( '<li>' + repo_date + ' ' + val.actor.login + ' <a href="' + val.repo.url + '">' + val.repo.name + '</a></li>' );
+				$stars_list.append( '<li>' + repo_date + ' ' + val.actor.login + ' <a href="' + val.repo.url + '">' + val.repo.name + '</a></li>' );
 			}
 		} );
 
