@@ -14,7 +14,7 @@ var access_token = '',
 		});
 	}
 
-	var processData = function( response ) {
+	function processData( response ) {
 		var repo_date;
 		$.each( response.data, function processItem( key, val ) {
 			if ( 'WatchEvent' === val.type ) {
@@ -26,7 +26,7 @@ var access_token = '',
 		if ( 'next' === response.meta.Link[0][1].rel ) {
 			pageRequest( response.meta.Link[0][0] );
 		}
-	};
+	}
 
 	window.ghstars_processData = processData;
 
