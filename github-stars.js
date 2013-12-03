@@ -8,6 +8,6 @@
 				star_list += '<li>' + val.actor.login + ' <a href="' + val.repo.url + '">' + val.repo.name + '</a></li>';				
 			}
 		});
-		$('#stars-list').html( '<ul>' + star_list + '</ul>' );
+		$('#stars-list').append( star_list );
 	}
 })( jQuery );
