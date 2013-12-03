@@ -1,5 +1,5 @@
-var access_token = '',
-    gh_user      = '';
+var ghstars_access_token = '',
+    ghstars_user      = '';
 
 (function( window, $ ) {
 	var document = window.document;
@@ -32,5 +32,5 @@ var access_token = '',
 
 	window.ghstars_processData = processData;
 
-	pageRequest( 'https://api.github.com/users/' + gh_user + '/received_events?access_token=' + access_token + '&callback=ghstars_processData' );
+	pageRequest( 'https://api.github.com/users/' + ghstars_user + '/received_events?access_token=' + ghstars_access_token + '&callback=ghstars_processData' );
 })( window, jQuery );
