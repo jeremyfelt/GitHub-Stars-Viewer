@@ -21,7 +21,7 @@ var ghstars_access_token = '',
 		$.each( response.data, function processItem( key, val ) {
 			if ( 'WatchEvent' === val.type ) {
 				repo_date = new Date( val.created_at );
-				$stars_list.append( '<li>' + repo_date + ' ' + val.actor.login + ' <a href="' + val.repo.url + '">' + val.repo.name + '</a></li>' );
+				$stars_list.append( '<li>' + val.actor.login + ' <a target=_blank href="https://github.com/' + val.repo.name + '">' + val.repo.name + '</a> <span class="star-date">' + repo_date + '</span></li>' );
 			}
 		} );
 
